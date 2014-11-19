@@ -12,20 +12,34 @@ package finalproject;
  */
 public class Node
 {
+    Node nextNode;           //reference to next node in chain. null if none
+    ReservationInfo rObject; //data carried by this node
 
-    public ReservationInfo rObject; //data
-    public Node nextNode;           //pointer to next node
-    
     public Node(ReservationInfo reservation)
     {
+        nextNode = null;
         rObject = reservation;
     }
     
-    public void printNodeElements()
+    //Getters
+    public Node getNextNode()          {  return nextNode;    }
+    public ReservationInfo getrObject(){   return rObject; }
+
+    //Setters
+    public void setrObject(ReservationInfo rObject){    this.rObject = rObject;}
+    public void setNextNode(Node nextNode){ this.nextNode = nextNode; }
+    
+    @Override
+    public String toString()
     {
-        System.out.println("Elements are: " + rObject.getrName()
-                                            + rObject.getrDate()
-                                            + rObject.getrTime()
-        );
+        return "Node{" + "nextNode=" + nextNode + ", rObject=" + rObject + '}';
     }
+    
+//    public void printNodeElements()
+//    {
+//        System.out.println("Elements are: " + rObject.getrName()
+//                                            + rObject.getrDate()
+//                                            + rObject.getrTime()
+//        );
+//    }
 }
