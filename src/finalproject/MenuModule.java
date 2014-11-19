@@ -18,7 +18,7 @@ import java.io.*;
 
 public class MenuModule
 {
-    Node list = new Node(null);
+    LinkedLists list = new LinkedLists();
     
     public void runMenu()
     {
@@ -26,6 +26,7 @@ public class MenuModule
         int choice = 0;
         do
         {
+            System.out.println("Luigi's Restaurant");
             System.out.println("Please choose your options:");
             System.out.println("1) Reservations");
             System.out.println("2) Walk-ins");
