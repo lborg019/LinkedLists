@@ -39,12 +39,12 @@ public class UserInfo
     public void loadInfo()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please type in your name");
+        System.out.println("Please type in your name:");
         setuName(scanner.nextLine());
-        System.out.println("Please type in the reservation date");
+        System.out.println("Please type in the reservation date:");
         setuDate(scanner.nextLine());
         System.out.println("Please type in the reservation"
-                           + " time (continuous format)");
+                           + " time (continuous format):");
         setuTime(scanner.nextLine());
     }
     
