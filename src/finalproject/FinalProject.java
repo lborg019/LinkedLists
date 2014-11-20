@@ -16,9 +16,9 @@ public class FinalProject {
      * @param args the command line arguments
      */
     public static void main(String[] args)
-    {
+    {   
         MenuModule menuObj = new MenuModule();
-        menuObj.runMenu();
+        menuObj.runMenu();   
     }
     
 }
