@@ -11,6 +11,7 @@ package finalproject;
  * @author Lukas Borges
  */
 
+//empty class, merge this class with rLinkedList
 public class LinkedLists
 {
     
