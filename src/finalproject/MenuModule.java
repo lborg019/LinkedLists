@@ -18,7 +18,9 @@ import java.io.*;
 
 public class MenuModule
 {
-    LinkedLists list = new LinkedLists();
+    //LinkedLists list = new LinkedLists();
+    rLinkedList rList = new rLinkedList();
+    UserInfo    uInfo = new UserInfo();
     
     public void runMenu()
     {
@@ -64,7 +66,7 @@ public class MenuModule
             System.out.println("Walk-ins:");
             System.out.println("1) Enqueue a client");
             System.out.println("2) Dequeue a client");
-            System.out.println("3) View");
+            System.out.println("3) View queue");
             System.out.println("4) Back");
             Scanner scan = new Scanner(System.in);
             choice = scan.nextInt();
@@ -82,7 +84,7 @@ public class MenuModule
             System.out.println("1) Make new reservation");
             System.out.println("2) Change reservation");
             System.out.println("3) Remove reservation");
-            System.out.println("4) View");
+            System.out.println("4) View reservations");
             System.out.println("5) Back");
             Scanner scan = new Scanner(System.in);
             choice = scan.nextInt();
@@ -90,6 +92,12 @@ public class MenuModule
             switch(choice)
             {
                 case 1:
+                    
+                    uInfo.loadInfo();
+                    rList.add(new ReservationInfo(rList.size()+1, uInfo.uName,
+                                                  uInfo.uDate, uInfo.uTime));
+                    //not sure rList.size()+1 is really necessary
+                    
                     break;
                     
                 case 2:
@@ -99,6 +107,8 @@ public class MenuModule
                     break;
                     
                 case 4:
+                    System.out.println(uInfo.uName + " " + uInfo.uDate + " " + uInfo.uTime);
+                    System.out.println(rList.size());
                     break;
                     
                 default:
