@@ -6,22 +6,23 @@
 
 package finalproject;
 
+import java.util.Scanner;
 /**
  *
- * @author Owner
+ * @author Lukas Borges
+ * 
+ * This class details the data part of each node.
+ * Each node in the Reservation linked list shall
+ * have this same set of data; which contains all
+ * the details for each reservation.
+ * 
  */
 public class ReservationInfo
 {
-
     int rNumber;
     String rName;
     String rDate;
     String rTime;
-    
-    public ReservationInfo()
-    {
-        
-    }
 
     public ReservationInfo(int rNumber, String rName, String rDate, String rTime)
     {
