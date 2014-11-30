@@ -76,6 +76,24 @@ class rLinkedList
         return listCount;
     }
     
+    public ReservationInfo get(int index)
+    {
+        // index must be 1 or higher
+        //if(index < 0)
+        //return null;
+		
+        Node current = head.getNextNode();
+        for(int i = 0; i < index; i++)
+        {
+            if(current.getNextNode() == null)
+            return null;
+            
+            current = current.getNextNode();
+        }
+        return current.getrObject();
+    }
+    
+    
     @Override
     public String toString()
     {
