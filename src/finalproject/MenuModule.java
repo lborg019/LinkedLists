@@ -91,7 +91,7 @@ public class MenuModule
             
             switch(choice)
             {
-                case 1:
+                case 1: //add
                     
                     uInfo.loadInfo();
                     rList.add(new ReservationInfo(rList.size()+1, uInfo.uName,
@@ -100,15 +100,28 @@ public class MenuModule
                     
                     break;
                     
-                case 2:
+                case 2: //change
                     break;
                     
-                case 3:
+                case 3: //remove
+                    //output entire list
+                    //which reservation do you want to remove?
+                    System.out.println("Reservation index:");
+                    int removeIndex = scan.nextInt();
+                    rList.remove(removeIndex);
+                    
                     break;
                     
-                case 4:
-                    System.out.println(uInfo.uName + " " + uInfo.uDate + " " + uInfo.uTime);
-                    System.out.println(rList.size());
+                case 4: //view
+                    
+                    System.out.println("Reservations total: " + rList.size());
+                    for (int i = 0; i < rList.size(); i++)
+                    {
+                        System.out.println("\nName: " + rList.get(i).rName
+                                         + "\nDate: " + rList.get(i).rDate
+                                         + "\nTime: " + rList.get(i).rTime);
+                    }
+                    
                     break;
                     
                 default:
