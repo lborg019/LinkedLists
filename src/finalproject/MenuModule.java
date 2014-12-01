@@ -21,11 +21,12 @@ public class MenuModule
     //LinkedLists list = new LinkedLists();
     rLinkedList rList = new rLinkedList();
     UserInfo    uInfo = new UserInfo();
+    Scanner scan = new Scanner(System.in);
     
     public void runMenu()
     {
-        Scanner scan = new Scanner(System.in);
-        int choice = 0;
+        //Scanner scan = new Scanner(System.in);
+        int choice;
         do
         {
             System.out.println("Luigi's Restaurant");
@@ -38,7 +39,6 @@ public class MenuModule
             {
                 case 1:
                     runReservations();
-                    
                 break;
                     
                 case 2:
@@ -91,24 +91,22 @@ public class MenuModule
             
             switch(choice)
             {
-                case 1: //add
-                    
-                    uInfo.loadInfo();
+                case 1: //add data
+                    uInfo.loadInfo(); //validates and loads user info
+                    //adds this user info to list
                     rList.add(new ReservationInfo(rList.size()+1, uInfo.uName,
                                                   uInfo.uDate, uInfo.uTime));
-                    //not sure rList.size()+1 is really necessary
                     
+                    //not sure rList.size()+1 is really necessary
                     break;
                     
-                case 2: //change
+                case 2: //change data
+                    changeReservations();
+                    
                     break;
                     
                 case 3: //remove
-                    displayReservations();
-                    System.out.println("Type index of reservation to be removed:");
-                    int removeIndex = scan.nextInt();  //get Index
-                    rList.remove(removeIndex - 1);     //remove it
-                    displayReservations();             //display it again
+                    removeReservations();
                     
                     break;
                     
@@ -131,15 +129,43 @@ public class MenuModule
             System.out.println("Reservations total: " + rList.size());
             for (int i = 0; i < rList.size(); i++)
             {
-                System.out.println( "\nReservation #: " + (i+1)
+                System.out.println( "Reservation #: " + (i+1)
                                   + "\nName: " + rList.get(i).rName
                                   + "\nDate: " + rList.get(i).rDate
-                                  + "\nTime: " + rList.get(i).rTime);
+                                  + "\nTime: " + rList.get(i).rTime
+                                  + "\n");
             }
         }
         else
         {
             System.out.println("List is empty!");
+        }
+    }
+    
+    public void removeReservations()
+    {
+        displayReservations();
+        if(rList.isEmpty() == false)
+        {
+            System.out.println("Type index of reservation to be removed:");
+            int removeIndex = scan.nextInt();  //get index
+            rList.remove(removeIndex - 1);     //remove it
+            displayReservations();             //display it again
+        }
+    }
+    
+    public void changeReservations()
+    {
+        displayReservations();
+        if(rList.isEmpty() == false)
+        {
+            System.out.println("Type index of reservation to be changed:");
+            int changeIndex = scan.nextInt();   //get index
+            changeIndex  = changeIndex - 1;
+            uInfo.loadInfo();                   //load/val user info
+            rList.get(changeIndex).setrName(uInfo.uName); //set new name
+            rList.get(changeIndex).setrDate(uInfo.uDate); //set new date
+            rList.get(changeIndex).setrTime(uInfo.uTime); //set new time
         }
     }
 }
