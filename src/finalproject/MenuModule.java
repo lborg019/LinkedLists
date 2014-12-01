@@ -106,7 +106,7 @@ public class MenuModule
                 case 3: //remove
                     displayReservations();
                     System.out.println("Type index of reservation to be removed:");
-                    int removeIndex = scan.nextInt();
+                    int removeIndex = scan.nextInt();  //get Index
                     rList.remove(removeIndex - 1);     //remove it
                     displayReservations();             //display it again
                     
@@ -131,7 +131,6 @@ public class MenuModule
             System.out.println("Reservations total: " + rList.size());
             for (int i = 0; i < rList.size(); i++)
             {
-                System.out.println(i);
                 System.out.println( "\nReservation #: " + (i+1)
                                   + "\nName: " + rList.get(i).rName
                                   + "\nDate: " + rList.get(i).rDate
