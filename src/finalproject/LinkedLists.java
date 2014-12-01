@@ -52,6 +52,7 @@ class rLinkedList
         listCount++;
     }
     
+    //checks for empty
     public boolean isEmpty()
     {
         if(listCount == 0)
@@ -64,12 +65,12 @@ class rLinkedList
         }
     }
     
-    //removes element at specified position
-    //not working when removing a single element in the list
+    //removes element at specified index
     public boolean remove(int index)
     {
         //exit if index > range
-        if(index < 1 || index > size()) return false;
+        //if(index < 1 || index > size())
+            //return false;
         
         Node listCurrent = head;
         for (int i = 1; i < index; i++)
@@ -175,49 +176,3 @@ class Node
     public void setNextNode(Node nextNode)         {this.nextNode = nextNode;}
 
 }
-
-    //    public void enqueue(ReservationInfo r)
-//    {
-//        if(rear != null)
-//        {
-//            rear.next = new Node(r, null);
-//            rear = near.next;
-//        }
-//        else
-//        {
-//            rear = new Node(r, null);
-//            //finish implementing
-//        }
-//    }
-
-//    public String dequeue()
-//    {
-//        if(empty())
-//            throw new IllegalStateException();
-//        else
-//        {
-//            String value = front.element;
-//            front = front.next;
-//            if(front == null)
-//                rear = null;
-//            return value;
-//        }
-//    }
-//        public boolean hasNext()
-//        {
-//            if(position == null)
-//            {
-//                if(head == null) //linked list is empty
-//                {
-//                    return false;
-//                }
-//                return true;
-//            }
-//            
-//            if(position.nextNode == null)
-//            {
-//                return false;
-//            }
-//            else
-//            return true;
-//        }
