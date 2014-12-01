@@ -58,13 +58,6 @@ public class UserInfo
     public void setuNumber(int rNumber){ this.uNumber = rNumber; }    
     public void setuName(String rName){ this.uName    = rName;   }
     public void setuDate(String rDate){ this.uDate    = rDate;   }
-    public void setuTime(String rTime){ this.uTime    = rTime;   }    
-    
-    
-    
-    
-    
-    
-    
+    public void setuTime(String rTime){ this.uTime    = rTime;   }
     
 }
