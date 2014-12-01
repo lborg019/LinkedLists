@@ -52,7 +52,20 @@ class rLinkedList
         listCount++;
     }
     
+    public boolean isEmpty()
+    {
+        if(listCount == 0)
+        {
+            return true;
+        }
+            else
+        {
+            return false;
+        }
+    }
+    
     //removes element at specified position
+    //not working when removing a single element in the list
     public boolean remove(int index)
     {
         //exit if index > range
@@ -61,14 +74,17 @@ class rLinkedList
         Node listCurrent = head;
         for (int i = 1; i < index; i++)
         {
-            if(listCurrent.getNextNode() == null) return false;
+            if(listCurrent.getNextNode() == null)
+                return false;
+            
+            listCurrent = listCurrent.getNextNode();
         }
-        listCurrent = listCurrent.getNextNode();
         //connects current Node with succeding Node
         listCurrent.setNextNode(listCurrent.getNextNode().getNextNode());
-        listCount--;
+        listCount--; //decrements the number of elements in the list
         return true;
     }
+
     
     //returns the amount of nodes in the list
     public int size()
@@ -76,11 +92,12 @@ class rLinkedList
         return listCount;
     }
     
+    //allows me to access elements in the linked list
     public ReservationInfo get(int index)
     {
         // index must be 1 or higher
-        //if(index < 0)
-        //return null;
+        if(index < 0)
+        return null;
 		
         Node current = head.getNextNode();
         for(int i = 0; i < index; i++)
