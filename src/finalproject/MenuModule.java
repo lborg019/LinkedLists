@@ -80,7 +80,7 @@ public class MenuModule
         
         do
         {
-            System.out.println("Reservations:");
+            System.out.println("Reservations menu:");
             System.out.println("1) Make new reservation");
             System.out.println("2) Change reservation");
             System.out.println("3) Remove reservation");
@@ -104,24 +104,16 @@ public class MenuModule
                     break;
                     
                 case 3: //remove
-                    //output entire list
-                    //which reservation do you want to remove?
-                    System.out.println("Reservation index:");
+                    displayReservations();
+                    System.out.println("Type index of reservation to be removed:");
                     int removeIndex = scan.nextInt();
-                    rList.remove(removeIndex);
+                    rList.remove(removeIndex - 1);     //remove it
+                    displayReservations();             //display it again
                     
                     break;
                     
                 case 4: //view
-                    
-                    System.out.println("Reservations total: " + rList.size());
-                    for (int i = 0; i < rList.size(); i++)
-                    {
-                        System.out.println("\nName: " + rList.get(i).rName
-                                         + "\nDate: " + rList.get(i).rDate
-                                         + "\nTime: " + rList.get(i).rTime);
-                    }
-                    
+                    displayReservations();
                     break;
                     
                 default:
@@ -130,5 +122,25 @@ public class MenuModule
             
         }
         while(choice != 5);
+    }
+    
+    public void displayReservations()
+    {
+        if(rList.isEmpty() == false)
+        {
+            System.out.println("Reservations total: " + rList.size());
+            for (int i = 0; i < rList.size(); i++)
+            {
+                System.out.println(i);
+                System.out.println( "\nReservation #: " + (i+1)
+                                  + "\nName: " + rList.get(i).rName
+                                  + "\nDate: " + rList.get(i).rDate
+                                  + "\nTime: " + rList.get(i).rTime);
+            }
+        }
+        else
+        {
+            System.out.println("List is empty!");
+        }
     }
 }
