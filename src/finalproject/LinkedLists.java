@@ -23,8 +23,6 @@ class rLinkedList
     private Node head;
     private int listCount;
     
-    //private Node tail; ?
-    
     //default constructor
     public rLinkedList()
     {
@@ -32,8 +30,6 @@ class rLinkedList
         //is set to a new node with no data
         head = new Node(null);
         listCount = 0;
-        
-        //tail = new Node(next);?
     }
     
     //append object to the end of the list
