@@ -107,7 +107,6 @@ class rLinkedList
         return current.getrObject();
     }
     
-    
     @Override
     public String toString()
     {
@@ -126,12 +125,12 @@ class rLinkedList
 //This class defines the linked
 //list iterator, used to insert
 //nodes in the correct position
-class LinkedListIterator
+class LinkedListIterator //implements ListIterator
 {
     //3 instance variables
-    Node position;
-    Node previous;
-    boolean isAfterNext;
+    private Node position;
+    private Node previous;
+    private boolean isAfterNext;
 
     public LinkedListIterator()
     {
