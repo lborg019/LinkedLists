@@ -18,9 +18,10 @@ import java.io.*;
 
 public class MenuModule
 {
-    LinkedList rList  = new LinkedList();
-    UserInfo    uInfo = new UserInfo();
-    Scanner scan      = new Scanner(System.in);
+    LinkedList     rList  = new LinkedList();
+    UserInfo       uInfo  = new UserInfo();
+    Scanner         scan  = new Scanner(System.in);
+    ListIterator iterator = rList.listIterator();
     
     public void runMenu()
     {
@@ -93,9 +94,9 @@ public class MenuModule
                 case 1: //add data
                     uInfo.loadInfo(); //validates and loads user info
                     //adds this user info to list
-                    //rList.append(new ReservationInfo(rList.size()+1, uInfo.uName,
-                    //                                  uInfo.uDate, uInfo.uTime));
-                    rList.listIterator().add(new ReservationInfo(uInfo.uName, uInfo.uDate, uInfo.uTime));
+                    iterator.add(new ReservationInfo(uInfo.uName,
+                                                     uInfo.uDate,
+                                                     uInfo.uTime));
                     
                     break;
                     
