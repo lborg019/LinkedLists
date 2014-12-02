@@ -42,6 +42,7 @@ public class LinkedList
         
         listCurrent.setNextNode(listTemp);
         listCount++;
+        //System.out.println("Appended from LinkedList");
     }
     
     //checks for empty
@@ -189,6 +190,7 @@ class LinkedListIterator implements ListIterator
             position.nextNode = newNode;          //current pointer points to new node
             position = newNode;                   //current IS the new node
             listCount++;
+            //System.out.println("Added from ListIterator");
         }
 
         isAfterNext = false;
