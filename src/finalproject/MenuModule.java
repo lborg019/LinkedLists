@@ -18,8 +18,7 @@ import java.io.*;
 
 public class MenuModule
 {
-    //LinkedLists list = new LinkedLists();
-    rLinkedList rList  = new rLinkedList();
+    LinkedList rList  = new LinkedList();
     UserInfo    uInfo = new UserInfo();
     Scanner scan      = new Scanner(System.in);
     
