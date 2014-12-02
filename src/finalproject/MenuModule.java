@@ -93,10 +93,10 @@ public class MenuModule
                 case 1: //add data
                     uInfo.loadInfo(); //validates and loads user info
                     //adds this user info to list
-                    rList.append(new ReservationInfo(rList.size()+1, uInfo.uName,
-                                                  uInfo.uDate, uInfo.uTime));
+                    //rList.append(new ReservationInfo(rList.size()+1, uInfo.uName,
+                    //                                  uInfo.uDate, uInfo.uTime));
+                    rList.listIterator().add(new ReservationInfo(uInfo.uName, uInfo.uDate, uInfo.uTime));
                     
-                    //not sure rList.size()+1 is really necessary
                     break;
                     
                 case 2: //change data
@@ -123,9 +123,9 @@ public class MenuModule
     
     public void displayReservations()
     {
+        System.out.println("Reservations total: " + rList.size());
         if(rList.isEmpty() == false)
         {
-            System.out.println("Reservations total: " + rList.size());
             for (int i = 0; i < rList.size(); i++)
             {
                 System.out.println( "Reservation #: " + (i+1)
