@@ -114,7 +114,6 @@ public class LinkedList
         return output;
     }
     
-}
 
 //This class defines the linked
 //list iterator, used to insert
@@ -132,6 +131,18 @@ class LinkedListIterator //implements ListIterator
         previous = null;
         isAfterNext = false;
     }
+    
+    public boolean hasNext()
+    {  
+        if (position == null)
+        {
+            return head != null;
+        }
+        else
+        {
+            return position.nextNode != null;
+        }
+      }
 }    
 
 //This class defines each node object 
@@ -164,4 +175,5 @@ class Node
     public void setrObject(ReservationInfo rObject){this.rObject = rObject;  }
     public void setNextNode(Node nextNode)         {this.nextNode = nextNode;}
 
+}
 }
