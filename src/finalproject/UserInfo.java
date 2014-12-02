@@ -28,7 +28,7 @@ public class UserInfo
         
     }
 
-    public UserInfo(int uNumber, String uName, String uDate, String uTime)
+    public UserInfo(String uName, String uDate, String uTime)
     {        
         //this.uNumber = uNumber;
         this.uName = uName;
@@ -117,13 +117,13 @@ public class UserInfo
     }
     
     //Getters
-    //public int getuNumber() { return uNumber; }
+    public int getuNumber() { return uNumber; }
     public String getuName(){ return uName;   }
     public String getuDate(){ return uDate;   }
     public String getuTime(){ return uTime;   }
     
     //Setters
-    //public void setuNumber(int rNumber){ this.uNumber = rNumber; }    
+    public void setuNumber(int rNumber){ this.uNumber = rNumber; }    
     public void setuName(String rName){ this.uName    = rName;   }
     public void setuDate(String rDate){ this.uDate    = rDate;   }
     public void setuTime(String rTime){ this.uTime    = rTime;   }
