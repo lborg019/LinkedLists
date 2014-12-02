@@ -58,7 +58,7 @@ public class LinkedList
     }
     
     //removes element at specified index
-    public boolean remove(int index)
+    public boolean removeIndex(int index)
     {
         //exit if index > range
         //if(index < 1 || index > size())
@@ -116,11 +116,17 @@ public class LinkedList
         return output;
     }
     
+    //allows access to linked list iterator from class instatiation
+    public ListIterator listIterator()
+    {
+        return new LinkedListIterator();
+    }
+    
 
 //This class defines the linked
 //list iterator, used to insert
 //nodes in the correct position
-class LinkedListIterator //implements ListIterator
+class LinkedListIterator implements ListIterator
 {
     //3 instance variables
     private Node position;
@@ -134,6 +140,7 @@ class LinkedListIterator //implements ListIterator
         isAfterNext = false;
     }
     
+    @Override
     public ReservationInfo next()
     {  
         if (!hasNext()) { throw new NoSuchElementException(); }
@@ -151,6 +158,7 @@ class LinkedListIterator //implements ListIterator
          return position.rObject;
       }
     
+    @Override
     public boolean hasNext()
     {  
         if (position == null)
@@ -163,6 +171,7 @@ class LinkedListIterator //implements ListIterator
         }
     }
     
+    @Override
     public void add(ReservationInfo element)
     {
         if(position == null) //if list is empty, append new element
@@ -183,6 +192,30 @@ class LinkedListIterator //implements ListIterator
         }
 
         isAfterNext = false;
+    }
+    
+    @Override
+    public void remove()
+    {
+        if(!isAfterNext) { throw new IllegalStateException(); }
+        if(position == head)
+        {
+            removeIndex(0);
+        }
+        else
+        {
+            previous.nextNode = position.nextNode;
+        }
+        position = previous;
+        isAfterNext = false;
+        listCount--;
+    }
+
+    @Override
+    public void set(ReservationInfo element)
+    {
+        if(!isAfterNext) { throw new IllegalStateException(); }
+        position.rObject = element;
     }
 }    
 
