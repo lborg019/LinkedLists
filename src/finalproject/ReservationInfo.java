@@ -19,27 +19,27 @@ import java.util.Scanner;
  */
 public class ReservationInfo
 {
-    int rNumber;
+    //int rNumber;
     String rName;
     String rDate;
     String rTime;
 
-    public ReservationInfo(int rNumber, String rName, String rDate, String rTime)
+    public ReservationInfo(String rName, String rDate, String rTime)
     {
-        this.rNumber = rNumber;
+        //this.rNumber = rNumber;
         this.rName = rName;
         this.rDate = rDate;
         this.rTime = rTime;
     }
     
     //Getters
-    public int getrNumber() { return rNumber; }
+    //public int getrNumber() { return rNumber; }
     public String getrName(){ return rName;   }
     public String getrDate(){ return rDate;   }
     public String getrTime(){ return rTime;   }
     
     //Setters
-    public void setrNumber(int rNumber){ this.rNumber = rNumber; }
+    //public void setrNumber(int rNumber){ this.rNumber = rNumber; }
     public void setrName(String rName){ this.rName    = rName;   }
     public void setrDate(String rDate){ this.rDate    = rDate;   }
     public void setrTime(String rTime){ this.rTime    = rTime;   }    
