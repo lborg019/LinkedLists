@@ -14,7 +14,7 @@ public interface ListIterator
 {
     //move iterator past the next element
     //return traversed element
-    Object next();
+    ReservationInfo next();
     
     //tests if there is an element after position
     //return true if such element exists
