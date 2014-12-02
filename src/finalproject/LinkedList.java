@@ -103,6 +103,12 @@ public class LinkedList
         return current.getrObject();
     }
     
+    //allows access to linked list iterator from class instatiation
+    public ListIterator listIterator()
+    {
+        return new LinkedListIterator();
+    }
+    
     @Override
     public String toString()
     {
@@ -114,12 +120,6 @@ public class LinkedList
             listCurrent = listCurrent.getNextNode();
         }
         return output;
-    }
-    
-    //allows access to linked list iterator from class instatiation
-    public ListIterator listIterator()
-    {
-        return new LinkedListIterator();
     }
     
 
