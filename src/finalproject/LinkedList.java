@@ -171,7 +171,7 @@ class LinkedListIterator implements ListIterator
         }
     }
     
-    @Override
+    @Override //missing implementations
     public void add(ReservationInfo element)
     {
         if(position == null) //if list is empty, append new element
