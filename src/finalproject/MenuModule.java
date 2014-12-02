@@ -93,7 +93,7 @@ public class MenuModule
                 case 1: //add data
                     uInfo.loadInfo(); //validates and loads user info
                     //adds this user info to list
-                    rList.add(new ReservationInfo(rList.size()+1, uInfo.uName,
+                    rList.append(new ReservationInfo(rList.size()+1, uInfo.uName,
                                                   uInfo.uDate, uInfo.uTime));
                     
                     //not sure rList.size()+1 is really necessary
@@ -148,7 +148,7 @@ public class MenuModule
         {
             System.out.println("Type index of reservation to be removed:");
             int removeIndex = scan.nextInt();  //get index
-            rList.remove(removeIndex - 1);     //remove it
+            rList.removeIndex(removeIndex - 1);     //remove it
             displayReservations();             //display it again
         }
     }
