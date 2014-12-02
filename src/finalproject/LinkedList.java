@@ -6,6 +6,8 @@
 
 package finalproject;
 
+import java.util.NoSuchElementException;
+
 /**
  *
  * @author Lukas Borges
@@ -27,7 +29,7 @@ public class LinkedList
     }
     
     //append object to the end of the list
-    public void add(ReservationInfo reservation)
+    public void append(ReservationInfo reservation)
     {
         Node listTemp = new Node(reservation);
         Node listCurrent = head;
@@ -132,6 +134,23 @@ class LinkedListIterator //implements ListIterator
         isAfterNext = false;
     }
     
+    public ReservationInfo next()
+    {  
+        if (!hasNext()) { throw new NoSuchElementException(); }
+        isAfterNext = true;
+
+        if (position == null)
+        {
+            position = head;
+        }
+        else
+        {
+            position = position.nextNode;
+        }
+
+         return position.rObject;
+      }
+    
     public boolean hasNext()
     {  
         if (position == null)
@@ -142,7 +161,29 @@ class LinkedListIterator //implements ListIterator
         {
             return position.nextNode != null;
         }
-      }
+    }
+    
+    public void add(ReservationInfo element)
+    {
+        if(position == null) //if list is empty, append new element
+        {
+            append(element);
+            position = head;
+        }
+        else    //otherwise, append according to date/time comparison
+        {
+            //date comparison comes here
+            //if date is okay, add, if not, next();
+            Node newNode = new Node(null);  //create new node
+            newNode.rObject = element;      //assign parameter to node's data
+            newNode.nextNode = position.nextNode; //node points to next node in chain
+            position.nextNode = newNode;          //current pointer points to new node
+            position = newNode;                   //current IS the new node
+            listCount++;
+        }
+
+        isAfterNext = false;
+    }
 }    
 
 //This class defines each node object 
