@@ -176,7 +176,7 @@ class LinkedListIterator implements ListIterator
     {   
         if(isEmpty() == true) //if list is empty
         {
-            System.out.println("Added to empty list");
+            //System.out.println("Added to empty list");
             add(element); //add method has an exception for empty list
         }
         else
@@ -190,8 +190,8 @@ class LinkedListIterator implements ListIterator
                 int eTimeInt = Integer.parseInt(eTime);
                 int pTimeInt = Integer.parseInt(pTime);
                 
-                System.out.println(eTimeInt);
-                System.out.println(pTimeInt);
+//                System.out.println(eTimeInt);
+//                System.out.println(pTimeInt);
                 
                 if(i == (size()-1) && pTimeInt < eTimeInt)
                 {
@@ -201,7 +201,7 @@ class LinkedListIterator implements ListIterator
                 
                 if(pTimeInt >= eTimeInt)
                 {
-                    System.out.println("Added by comparison");
+                    //System.out.println("Added by comparison");
                     add(element);
                     break;
                 }
