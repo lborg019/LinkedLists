@@ -19,7 +19,7 @@ import java.io.*;
 public class MenuModule
 {
     LinkedList     rList  = new LinkedList();
-    UserInfo       uInfo  = new UserInfo();
+    UserInfo       uInfo  = new UserInfo(null, null);
     Scanner         scan  = new Scanner(System.in);
     ListIterator iterator = rList.listIterator();
     
@@ -94,9 +94,7 @@ public class MenuModule
                 case 1: //add data
                     uInfo.loadInfo(); //validates and loads user info
                     //adds this user info to list
-                    iterator.add(new ReservationInfo(uInfo.uName,
-                                                     uInfo.uDate,
-                                                     uInfo.uTime));
+                    iterator.add(new ReservationInfo(uInfo.uName, uInfo.uTime));
                     
                     break;
                     
@@ -131,7 +129,6 @@ public class MenuModule
             {
                 System.out.println( "Reservation #: " + (i+1)
                                   + "\nName: " + rList.get(i).rName
-                                  + "\nDate: " + rList.get(i).rDate
                                   + "\nTime: " + rList.get(i).rTime
                                   + "\n");
             }
@@ -164,7 +161,6 @@ public class MenuModule
             changeIndex  = changeIndex - 1;
             uInfo.loadInfo();                   //load/val user info
             rList.get(changeIndex).setrName(uInfo.uName); //set new name
-            rList.get(changeIndex).setrDate(uInfo.uDate); //set new date
             rList.get(changeIndex).setrTime(uInfo.uTime); //set new time
         }
     }
