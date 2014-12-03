@@ -42,7 +42,7 @@ public class LinkedList
         
         listCurrent.setNextNode(listTemp);
         listCount++;
-        //System.out.println("Appended from LinkedList");
+        System.out.println("Appended from LinkedList");
     }
     
     //checks for empty
@@ -172,6 +172,40 @@ class LinkedListIterator implements ListIterator
         }
     }
     
+    public void makeNewReservation(ReservationInfo element)
+    {   
+        if(isEmpty() == true) //if list is empty
+        {
+            add(element);
+        }
+        else
+        {
+            while(hasNext() == true)
+            {
+                System.out.println("in the while");
+                
+                String eTime = element.rTime.replaceAll(":", "");
+                int eTimeInt = Integer.parseInt(eTime);
+                System.out.println(eTimeInt);
+                
+                String pTime = position.nextNode.rObject.rTime.replaceAll(":", "");
+                int pTimeInt = Integer.parseInt(pTime);
+                System.out.println(pTimeInt);
+                
+                if(pTimeInt >= eTimeInt)
+                {
+                    System.out.println("chain node is bigger or equal than insertion");
+                    System.out.println("insert new element here");
+                    add(element);
+                    break;
+                }
+                next();
+            }
+            
+        }
+        position = head;
+    }
+    
     @Override //missing implementations
     public void add(ReservationInfo element)
     {
@@ -190,7 +224,7 @@ class LinkedListIterator implements ListIterator
             position.nextNode = newNode;          //current pointer points to new node
             position = newNode;                   //current IS the new node
             listCount++;
-            //System.out.println("Added from ListIterator");
+            System.out.println("Added from ListIterator");
         }
 
         isAfterNext = false;
