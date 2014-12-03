@@ -42,7 +42,7 @@ public class LinkedList
         
         listCurrent.setNextNode(listTemp);
         listCount++;
-        System.out.println("Appended from LinkedList");
+        //System.out.println("Appended from LinkedList");
     }
     
     //checks for empty
@@ -176,37 +176,42 @@ class LinkedListIterator implements ListIterator
     {   
         if(isEmpty() == true) //if list is empty
         {
-            add(element);
+            System.out.println("Added to empty list");
+            add(element); //add method has an exception for empty list
         }
         else
         {
-            while(hasNext() == true)
+            position = head;
+            for (int i = 0; i < size(); i++)
             {
-                System.out.println("in the while");
-                
                 String eTime = element.rTime.replaceAll(":", "");
-                int eTimeInt = Integer.parseInt(eTime);
-                System.out.println(eTimeInt);
-                
                 String pTime = position.nextNode.rObject.rTime.replaceAll(":", "");
+                
+                int eTimeInt = Integer.parseInt(eTime);
                 int pTimeInt = Integer.parseInt(pTime);
+                
+                System.out.println(eTimeInt);
                 System.out.println(pTimeInt);
+                
+                if(i == (size()-1) && pTimeInt < eTimeInt)
+                {
+                    append(element);
+                    break;
+                }
                 
                 if(pTimeInt >= eTimeInt)
                 {
-                    System.out.println("chain node is bigger or equal than insertion");
-                    System.out.println("insert new element here");
+                    System.out.println("Added by comparison");
                     add(element);
                     break;
                 }
-                next();
+                else
+                    next();
             }
-            
         }
-        position = head;
     }
     
-    @Override //missing implementations
+    @Override
     public void add(ReservationInfo element)
     {
         if(position == null) //if list is empty, append new element
@@ -214,17 +219,15 @@ class LinkedListIterator implements ListIterator
             append(element);
             position = head;
         }
-        else    //otherwise, append according to date/time comparison
+        else//otherwise, append according to date/time comparison
         {
-            //date comparison comes here
-            //if date is okay, add, if not, next();
             Node newNode = new Node(null);  //create new node
             newNode.rObject = element;      //assign parameter to node's data
             newNode.nextNode = position.nextNode; //node points to next node in chain
             position.nextNode = newNode;          //current pointer points to new node
             position = newNode;                   //current IS the new node
             listCount++;
-            System.out.println("Added from ListIterator");
+            //System.out.println("Added from ListIterator");
         }
 
         isAfterNext = false;
