@@ -94,22 +94,22 @@ public class MenuModule
                 case 1: //add data
                     uInfo.loadInfo(); //validates and loads user info
                     //adds this user info to list
-                    iterator.add(new ReservationInfo(uInfo.uName, uInfo.uTime));
+                    iterator.makeNewReservation(new ReservationInfo(uInfo.uName, uInfo.uTime));
                     
                     break;
                     
                 case 2: //change data
-                    changeReservations();
+                    changeReservation();
                     
                     break;
                     
                 case 3: //remove
-                    removeReservations();
+                    removeReservation();
                     
                     break;
                     
                 case 4: //view
-                    displayReservations();
+                    displayReservation();
                     break;
                     
                 default:
@@ -120,7 +120,7 @@ public class MenuModule
         while(choice != 5);
     }
     
-    public void displayReservations()
+    public void displayReservation()
     {
         System.out.println("Reservations total: " + rList.size());
         if(rList.isEmpty() == false)
@@ -139,21 +139,21 @@ public class MenuModule
         }
     }
     
-    public void removeReservations()
+    public void removeReservation()
     {
-        displayReservations();
+        displayReservation();
         if(rList.isEmpty() == false)
         {
             System.out.println("Type index of reservation to be removed:");
             int removeIndex = scan.nextInt();  //get index
-            rList.removeIndex(removeIndex - 1);     //remove it
-            displayReservations();             //display it again
+            rList.removeIndex(removeIndex);     //remove it
+            displayReservation();             //display it again
         }
     }
     
-    public void changeReservations()
+    public void changeReservation()
     {
-        displayReservations();
+        displayReservation();
         if(rList.isEmpty() == false)
         {
             System.out.println("Type index of reservation to be changed:");
