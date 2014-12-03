@@ -29,6 +29,9 @@ public interface ListIterator
     //This method can only be called after call to next method
     void remove();
     
+    //Places new reservation at the correct spot
+    void makeNewReservation(ReservationInfo element);
+    
     //Sets the last traversed element to a different value
     //parameter = element to set
     void set(ReservationInfo element);
