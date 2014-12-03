@@ -146,7 +146,7 @@ public class MenuModule
         {
             System.out.println("Type index of reservation to be removed:");
             int removeIndex = scan.nextInt();  //get index
-            rList.removeIndex(removeIndex);     //remove it
+            rList.removeIndex(removeIndex);    //remove it
             displayReservation();             //display it again
         }
     }
@@ -158,10 +158,9 @@ public class MenuModule
         {
             System.out.println("Type index of reservation to be changed:");
             int changeIndex = scan.nextInt();   //get index
-            changeIndex  = changeIndex - 1;
-            uInfo.loadInfo();                   //load/val user info
-            rList.get(changeIndex).setrName(uInfo.uName); //set new name
-            rList.get(changeIndex).setrTime(uInfo.uTime); //set new time
+            rList.removeIndex(changeIndex);
+            uInfo.loadInfo();                             //load/val user info
+            iterator.makeNewReservation(new ReservationInfo(uInfo.uName, uInfo.uTime));
         }
     }
 }
