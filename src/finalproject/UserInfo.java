@@ -32,16 +32,18 @@ public class UserInfo
         this.uTime = uTime;
     }
 
+    /**
+     * time follows hh:mm format.
+     * fail validation test if:
+     * -> less than 5 characters are entered
+     * -> : are placed incorrectly
+     * -> hh > 24
+     * -> mm > 59
+     * 
+    */
     //check if time is okay
     public boolean checkTime(String time)
     {
-        //time follows hh:mm format;
-        //fail validation test if:
-        //-> less than 5 characters are entered;
-        //-> : are placed incorrectly
-        //-> hh > 24
-        //-> mm > 59
-        
         int hours = Integer.parseInt(time.substring(0,2));
         int minutes = Integer.parseInt(time.substring(3,5));
         
